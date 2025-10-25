@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ByBug Policy | Dakikalar İçinde Politika Dokümanı Oluşturun</title>
+  <meta name="description"
+    content="ByBug Policy; web, mobil ve masaüstü projelerinize dakikalar içinde kişiselleştirilmiş gizlilik ve kullanım politikaları hazırlayan otomatik çözüm.">
+  <meta name="keywords"
+    content="bybug policy, politika oluşturucu, gizlilik politikası, kullanım şartları, jeafriday, otomatik politika generator">
+  <meta name="author" content="JeaFriday">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://policy.bybug.com.tr/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ByBug Policy">
+  <meta property="og:title" content="ByBug Policy | Dakikalar İçinde Politika Dokümanı Oluşturun">
+  <meta property="og:description"
+    content="Markanıza ait web veya uygulama politikalarını otomatik hazırlayın, paylaşım linkinizi saniyeler içinde alın.">
+  <meta property="og:url" content="https://policy.bybug.com.tr/">
+  <meta property="og:image" content="https://policy.bybug.com.tr/assets/logo.png">
+  <meta property="og:image:alt" content="ByBug Policy logosu">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ByBug Policy | Dakikalar İçinde Politika Dokümanı Oluşturun">
+  <meta name="twitter:description"
+    content="Politika içeriklerinizi ByBug Policy ile zahmetsizce oluşturun ve yayınlayın.">
+  <meta name="twitter:image" content="https://policy.bybug.com.tr/assets/logo.png">
+  <meta name="twitter:site" content="@JeaFridayOfficial">
+
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "ByBug Policy",
+      "url": "https://policy.bybug.com.tr/",
+      "description": "ByBug Policy; web, mobil ve masaüstü projeleri için kişiselleştirilmiş politika dokümanlarını otomatik olarak üreten bir platformdur.",
+      "image": "https://policy.bybug.com.tr/assets/logo.png",
+      "creator": {
+        "@type": "Person",
+        "name": "JeaFriday",
+        "url": "https://github.com/JeaFrid"
+      },
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "featureList": [
+        "Otomatik gizlilik politikası oluşturma",
+        "Kullanım şartları oluşturma",
+        "Paylaşılabilir politika bağlantıları"
+      ],
+      "inLanguage": ["tr", "en"]
+    }
+  </script>
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <link rel="manifest" href="manifest.json">
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, rgba(224, 64, 251, 0.08), transparent 55%),
+        radial-gradient(circle at bottom, rgba(83, 109, 254, 0.08), transparent 55%),
+        #0a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
+      color: #fdfdfd;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::after {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: conic-gradient(from 180deg, rgba(224, 64, 251, 0.08), rgba(83, 109, 254, 0.08), transparent 60%);
+      filter: blur(80px);
+      z-index: 0;
+      animation: pulse 6s ease-in-out infinite;
+    }
+
+    #loading {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      width: min(360px, 100%);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .brand-title {
+      font-size: clamp(28px, 6vw, 38px);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0 0 12px;
+      background: linear-gradient(135deg, #e040fb, #536dfe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-subtitle {
+      margin: 0;
+      font-size: clamp(16px, 3vw, 18px);
+      color: rgba(253, 253, 253, 0.72);
+      letter-spacing: 0.08em;
+    }
+
+    .spinner {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 3px solid rgba(253, 253, 253, 0.1);
+      border-top-color: #e040fb;
+      border-right-color: #536dfe;
+      margin: 28px auto 0;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: rotate(0deg) scale(1);
+        opacity: 0.9;
+      }
+
+      50% {
+        transform: rotate(8deg) scale(1.05);
+        opacity: 0.6;
+      }
+    }
+
+    #loading.loading--completed {
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="loading">
+    <h1 class="brand-title">ByBug Policy</h1>
+    <p class="brand-subtitle">Politikalar Yarat!</p>
+    <div class="spinner" role="progressbar" aria-label="İçerik yükleniyor"></div>
+  </div>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      const loader = document.getElementById('loading');
+      if (!loader) {
+        return;
+      }
+      loader.classList.add('loading--completed');
+      const removeLoader = function () {
+        loader.remove();
+      };
+      loader.addEventListener('transitionend', removeLoader, { once: true });
+      setTimeout(removeLoader, 900);
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+
+</html>
