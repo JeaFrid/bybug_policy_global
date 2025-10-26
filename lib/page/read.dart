@@ -24,6 +24,7 @@ class PolicyReader extends StatefulWidget {
 class _PolicyReaderState extends State<PolicyReader> {
   JM<bool> isLoading = JM(true);
   JM<String> markdownText = JM("");
+  final ScrollController _markdownScrollController = ScrollController();
 
   @override
   void initState() {
@@ -64,6 +65,12 @@ class _PolicyReaderState extends State<PolicyReader> {
         }
       }
     });
+  }
+
+  @override
+  void dispose() {
+    _markdownScrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -209,26 +216,34 @@ class _PolicyReaderState extends State<PolicyReader> {
                         borderRadius: BorderRadius.circular(5),
                         color: navColor,
                       ),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            btn(
-                              "Politika Bağlantısı",
-                              "assets/link.png",
-                              dontScale: true,
-                              onTap: () async {
-                                await copy(
-                                  "https://policy.bybug.com.tr/${widget.name}",
-                                );
-                                if(!context.mounted)return;
-                                getInfoSnack(context, "Kopyalandı!");
-                              },
-                            ),
-                            GptMarkdown(
-                              markdownText(),
-                              style: GoogleFonts.roboto(color: textColor),
-                            ),
-                          ],
+                      child: Scrollbar(
+                        controller: _markdownScrollController,
+                        thumbVisibility: true,
+                        child: SingleChildScrollView(
+                          controller: _markdownScrollController,
+                          physics: const AlwaysScrollableScrollPhysics(),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              btn(
+                                "Politika Bağlantısı",
+                                "assets/link.png",
+                                dontScale: true,
+                                onTap: () async {
+                                  await copy(
+                                    "https://policy.bybug.com.tr/${widget.name}",
+                                  );
+                                  if(!context.mounted)return;
+                                  getInfoSnack(context, "Kopyalandı!");
+                                },
+                              ),
+                              GptMarkdown(
+                                markdownText(),
+                                style: GoogleFonts.roboto(color: textColor),
+                              ),
+                              const SizedBox(height: 12),
+                            ],
+                          ),
                         ),
                       ),
                     ),

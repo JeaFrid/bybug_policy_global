@@ -5,28 +5,21 @@ import 'package:bybugpolicy/theme/color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting('tr', null);
-  await dotenv.load(fileName: ".env");
-  final dbUrl = dotenv.env["BYBUG_DB_URL"];
-  final dbToken = dotenv.env["BYBUG_DB_TOKEN"];
-  if (dbUrl == null ||
-      dbToken == null ||
-      dbUrl.trim().isEmpty ||
-      dbToken.trim().isEmpty) {
+  const dbUrl = String.fromEnvironment('BYBUG_DB_URL');
+  const dbToken = String.fromEnvironment('BYBUG_DB_TOKEN');
+
+  if (dbUrl.trim().isEmpty || dbToken.trim().isEmpty) {
     throw Exception(
       "ByBug Policy configuration is missing. Please provide BYBUG_DB_URL and BYBUG_DB_TOKEN in .env.",
     );
   }
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  ByBugDB.initialize(
-    url: dbUrl,
-    authToken: dbToken,
-  );
+  ByBugDB.initialize(url: dbUrl.trim(), authToken: dbToken.trim());
   runApp(const MyApp());
 }
 
@@ -36,7 +29,9 @@ String? _policyNameFromUrl() {
   }
 
   final uri = Uri.base;
-  final pathSegments = uri.pathSegments.where((segment) => segment.isNotEmpty).toList();
+  final pathSegments = uri.pathSegments
+      .where((segment) => segment.isNotEmpty)
+      .toList();
   if (pathSegments.isNotEmpty) {
     final lastSegment = pathSegments.last;
     if (lastSegment != 'index.html') {
